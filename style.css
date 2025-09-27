@@ -1,83 +1,368 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #000;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    color: #eaeaea;
+    background-color: #000; /* Default dark mode background */
+    color: #fff; /* Default dark mode font color */
 }
 
-header, .navbar {
-    background-color: #101010 !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+body.light-mode {
+    background-color: #f4f4f4; /* Light mode background */
+    color: #333; /* Light mode font color */
+}
+
+header {
+    background-color: #1a1a1a; /* Darker black */
+    color: rgba(255, 255, 255, 0.7); /* Blurry white */
+    padding: 1em 20px; /* Add horizontal padding */
+    width: 100%; /* Ensure header takes full width */
+    box-sizing: border-box; /* Include padding in width */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between nav and logo */
+    align-items: center; /* Vertically center items */
+    max-width: 1200px; /* Limit content width */
+    margin: 0 auto; /* Center the header content */
+}
+
+body.light-mode header {
+    background-color: #ccc; /* Lighter header in light mode */
+    color: #333;
+}
+
+.header-inner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between logo and theme switcher */
+}
+
+.main-nav ul { /* Target the specific nav for header */
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use flexbox for nav links */
+    gap: 20px; /* Equal spacing between links */
+}
+
+nav ul li {
+    display: inline-block; /* Keep inline-block for consistency, gap handles spacing */
+    margin: 0;
+}
+
+nav ul li a {
+    color: rgba(255, 255, 255, 0.7); /* Blurry white */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+nav ul li a:hover {
+    color: #007bff; /* Blue on hover */
 }
 
 main {
-    flex: 1;
-    padding: 40px 20px 20px 20px;
-    color: #eaeaea;
+    padding: 20px;
+    max-width: 100%; /* Full width */
+    margin: auto;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
-h1, h2, h3, h4, h5 {
-    color: #00bcd4;
+section {
+    background-color: #1a1a1a; /* Darker black for sections */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Darker shadow */
+    width: calc(100% - 40px); /* 100% width minus padding */
+    box-sizing: border-box;
 }
 
-.bg-light {
-    background-color: #181818 !important;
+body.light-mode section {
+    background-color: #fff; /* White sections in light mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-footer, .footer, .bg-dark {
-    background-color: #101010 !important;
-    color: #fff;
+/* About Me Section Specific Styles */
+.about-me-section {
+    background-image: url('img/about-bg-image.jpg'); /* Creative background image */
+    background-size: cover;
+    background-position: center;
+    min-height: 500px; /* Make section bigger */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-me-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+    z-index: 1;
+}
+
+.about-me-section .about-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.about-me-section h1 {
+    font-size: 3.5em; /* Bigger font for heading */
+    margin-bottom: 20px;
+    color: #007bff; /* Light blue for heading */
+}
+
+.about-me-section p {
+    font-size: 1.3em; /* Bigger font for paragraph */
+    line-height: 1.6;
+    color: #fff; /* White font for body text */
+}
+
+body.light-mode .about-me-section p {
+    color: #333; /* Darker text in light mode */
+}
+
+.profile-picture-container {
+    position: absolute;
+    bottom: 20px; /* Position to the side/bottom */
+    right: 20px;
+    z-index: 2;
+    background-color: #fff; /* White box for profile picture */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .profile-picture-container {
+    background-color: #eee; /* Lighter box in light mode */
+}
+
+.profile-picture-container img {
+    max-width: 150px;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Responsive adjustments for About Me section */
+@media (max-width: 768px) {
+    .about-me-section h1 {
+        font-size: 2.5em;
+    }
+
+    .about-me-section p {
+        font-size: 1em;
+    }
+
+    .profile-picture-container {
+        position: relative; /* Stack on smaller screens */
+        margin-top: 20px;
+        right: auto;
+        bottom: auto;
+    }
+}
+
+section h1, section h3 {
+    color: #007bff; /* Light blue for headings */
+    text-align: left; /* Align headings to the left */
+}
+
+.title h1 {
     text-align: center;
 }
 
-.navbar-nav .nav-link {
-    color: #fff !important;
-    font-weight: 500;
-    transition: color 0.2s;
+.theme-text {
+    color: #007bff; /* Light blue for theme text */
 }
 
-.navbar-nav .nav-link:hover {
-    color: #00bcd4 !important;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.btn-primary {
-    background-color: #00bcd4;
-    border: none;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px; /* Compensate for column padding */
 }
 
-.btn-primary:hover {
-    background-color: #0097a7;
+.col-12, .col-md-8, .col-lg-8, .col-lg-12, .col-lg-6 {
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.col-12 { width: 100%; }
+@media (min-width: 768px) {
+    .col-md-8 { width: 66.66%; }
+}
+@media (min-width: 992px) {
+    .col-lg-8 { width: 66.66%; }
+    .col-lg-12 { width: 100%; }
+    .col-lg-6 { width: 50%; }
+}
+
+.my-md-4 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+.py-md-3 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-4 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-md-0 { padding-top: 0; padding-bottom: 0; }
+.my-5 { margin-top: 3rem; margin-bottom: 3rem; }
+.py-3 { padding-top: 1rem; padding-bottom: 1rem; }
+.p-3 { padding: 1rem; }
+.my-3 { margin-top: 1rem; margin-bottom: 1rem; }
+
+.border {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Subtle border */
+    border-radius: 8px;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+
+.progress-con {
+    background-color: #2a2a2a; /* Slightly lighter dark for progress container */
+    border-radius: 5px;
+}
+
+.progress {
+    height: 10px;
+    background-color: #333; /* Darker background for empty progress */
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .progress-bar {
-    background-color: #00bcd4;
+    height: 100%;
+    background-color: #007bff; /* Light blue for progress bar */
+    border-radius: 5px;
+    text-align: center;
     color: #fff;
+    transition: width 0.6s ease;
 }
 
-.social a {
-    color: #00bcd4;
+.logo-placeholder {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #007bff; /* Light blue for the logo name */
+}
+
+.creative-design-placeholder {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.project-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #1a1a1a; /* Darker black */
+    color: rgba(255, 255, 255, 0.7); /* Blurry white */
+    text-align: center;
+    padding: 1em 0;
+    width: 100%;
+}
+
+body.light-mode footer {
+    background-color: #ccc; /* Lighter footer in light mode */
+    color: #333;
+}
+
+.social-media a {
+    color: rgba(255, 255, 255, 0.7); /* Blurry white */
     margin: 0 10px;
-    font-size: 1.5rem;
-    transition: color 0.2s;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.social a:hover {
-    color: #fff;
+.social-media a:hover {
+    color: #007bff; /* Blue on hover */
 }
 
-@media (max-width: 700px) {
-    .navbar-nav {
-        flex-direction: column;
-        align-items: stretch;
+/* Theme switcher */
+.theme-switcher {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-switcher:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode .theme-switcher {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode .theme-switcher:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-switcher i {
+    font-size: 1.5em; /* Adjust icon size */
+    color: rgba(255, 255, 255, 0.7); /* Icon color */
+}
+
+body.light-mode .theme-switcher i {
+    color: #333; /* Icon color in light mode */
+}
+
+.theme-switcher .light-icon {
+    display: none; /* Hidden by default in dark mode */
+}
+
+body.light-mode .theme-switcher .light-icon {
+    display: block; /* Visible in light mode */
+}
+
+body.light-mode .theme-switcher .dark-icon {
+    display: none; /* Hidden in light mode */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack nav and logo vertically */
+        text-align: center;
     }
-    .navbar-nav .nav-link {
-        padding: 12px 0;
-        border-bottom: 1px solid #23272f;
+
+    .main-nav ul { /* Target the specific nav for header */
+        flex-direction: column; /* Stack nav links vertically */
+        gap: 10px;
+        margin-bottom: 15px;
     }
-    .social {
-        flex-direction: column;
-        align-items: center;
+
+    nav ul li {
+        margin: 0;
+    }
+
+    section {
+        width: calc(100% - 40px); /* Adjust for smaller screens */
     }
 }
