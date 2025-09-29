@@ -253,6 +253,10 @@ section h1, section h3 {
     transition: width 0.6s ease;
 }
 
+body.light-mode .progress-bar {
+    color: #eee; /* Lighter text for progress bar in light mode */
+}
+
 .logo-placeholder {
     font-size: 1.5em;
     font-weight: bold;
