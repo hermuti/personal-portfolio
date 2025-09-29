@@ -43,3 +43,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark mode
     applyTheme(savedTheme);
 });
+
+// Certificate image modal functionality
+const modal = document.getElementById("certificateModal");
+const modalImg = document.getElementById("img01");
+const captionText = document.getElementById("caption");
+const closeBtn = document.getElementsByClassName("close")[0];
+
+document.querySelectorAll('.certificate-image').forEach(image => {
+    image.addEventListener('click', function() {
+        modal.style.display = "block";
+        modalImg.src = this.dataset.fullsrc;
+        captionText.innerHTML = this.alt;
+    });
+});
+
+closeBtn.addEventListener('click', function() {
+    modal.style.display = "none";
+});
+
+// Close the modal if the user clicks outside the image
+window.addEventListener('click', function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+});

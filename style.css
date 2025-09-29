@@ -25,7 +25,7 @@ header {
 }
 
 body.light-mode header {
-    background-color: #ccc; /* Lighter header in light mode */
+    background-color: #E0BBE4; /* Light purple header in light mode */
     color: #333;
 }
 
@@ -83,7 +83,7 @@ section {
 }
 
 body.light-mode section {
-    background-color: #fff; /* White sections in light mode */
+    background-color: #E0BBE4; /* Light purple sections in light mode */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -267,6 +267,43 @@ section h1, section h3 {
     border-radius: 8px;
 }
 
+.certificate-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    background-color: #2a2a2a;
+    transition: transform 0.3s ease-in-out;
+}
+
+.certificate-item:hover {
+    transform: translateY(-5px);
+}
+
+.certificate-item h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.certificate-item p {
+    margin-bottom: 10px;
+}
+
+.certificate-image {
+    width: 200px; /* Fixed width for display */
+    height: 150px; /* Fixed height for display */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer; /* Indicate that images are clickable */
+    transition: transform 0.3s ease-in-out;
+}
+
+.certificate-image:hover {
+    transform: scale(1.05); /* Slightly larger scale on hover */
+}
+
 .project-card {
     margin-bottom: 20px;
     padding: 15px;
@@ -397,7 +434,7 @@ footer {
 }
 
 body.light-mode footer {
-    background-color: #ccc; /* Lighter footer in light mode */
+    background-color: #E0BBE4; /* Light purple footer in light mode */
     color: #333;
 }
 
@@ -431,11 +468,11 @@ body.light-mode footer {
 }
 
 body.light-mode .theme-switcher {
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid #E0BBE4; /* Light purple border in light mode */
 }
 
 body.light-mode .theme-switcher:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #CCADDC; /* Slightly darker purple on hover in light mode */
 }
 
 .theme-switcher i {
@@ -444,7 +481,7 @@ body.light-mode .theme-switcher:hover {
 }
 
 body.light-mode .theme-switcher i {
-    color: #333; /* Icon color in light mode */
+    color: #8A2BE2; /* Purple icon color in light mode */
 }
 
 .theme-switcher .light-icon {
